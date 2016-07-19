@@ -19,7 +19,8 @@ public class Game implements BowlingGameResultCalculator {
 	}
 
 	public void roll(int numberOfPins) throws NoMoreFramesException {
-		if (mainCurrentFrame == LAST_FRAME && frames.get(mainCurrentFrame).isFinished() == true) {
+		if (mainCurrentFrame == LAST_FRAME
+				&& frames.get(mainCurrentFrame).isFinished() == true) {
 			throw new NoMoreFramesException();
 		}
 		checkIsNextFrame();
@@ -34,15 +35,19 @@ public class Game implements BowlingGameResultCalculator {
 	private void addBonusPoints() {
 		Frame previousFrame = frames.get(mainCurrentFrame - 1);
 		Frame actualFrame = frames.get(mainCurrentFrame);
-		if (previousFrame.getBonus() == Bonus.STRIKE && actualFrame.isFinished() == true)
+		if (previousFrame.getBonus() == Bonus.STRIKE
+				&& actualFrame.isFinished() == true) {
 			actualScore += actualFrame.getScore();
-		else if ((previousFrame.getBonus() == Bonus.SPARE) && (actualFrame.getRollsQuantity() == 2))
+		} else if ((previousFrame.getBonus() == Bonus.SPARE)
+				&& (actualFrame.getRollsQuantity() == 2)) {
 			actualScore += actualFrame.getNumberOfPointsInFirsRoll();
+		}
 	}
 
 	private void checkIsNextFrame() {
-		if (frames.get(mainCurrentFrame).isFinished())
+		if (frames.get(mainCurrentFrame).isFinished()) {
 			mainCurrentFrame++;
+		}
 	}
 
 	public int score() {
@@ -53,10 +58,12 @@ public class Game implements BowlingGameResultCalculator {
 	}
 
 	public boolean isFinished() {
-		if (mainCurrentFrame == LAST_FRAME && frames.get(mainCurrentFrame).isFinished() == true)
+		if (mainCurrentFrame == LAST_FRAME
+				&& frames.get(mainCurrentFrame).isFinished()) {
 			return true;
-		else
+		} else {
 			return false;
+		}
 	}
 
 	public List<Frame> getFrames() {

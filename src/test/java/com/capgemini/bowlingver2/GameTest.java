@@ -57,6 +57,7 @@ public class GameTest {
 		int numberOfPinsFirstRoll = 4;
 		int numberOfPinsSecondRoll = 3;
 		int numberOfPinsThirdRoll = 5;
+		int sumOfPoints = numberOfPinsFirstRoll + numberOfPinsSecondRoll + numberOfPinsThirdRoll;
 		// when
 		game.setCurrentFrame(startingFrame);
 		game.roll(numberOfPinsFirstRoll);
@@ -64,7 +65,7 @@ public class GameTest {
 		game.roll(numberOfPinsThirdRoll);
 		int score = game.score();
 		// then
-		Assert.assertEquals(numberOfPinsFirstRoll + numberOfPinsSecondRoll + numberOfPinsThirdRoll, score);
+		Assert.assertEquals(sumOfPoints, score);
 	}
 
 	@Test
@@ -74,6 +75,7 @@ public class GameTest {
 		int firstRoll = 10;
 		int secondroll = 4;
 		int thirdRoll = 3;
+		int expectedResult = 24;
 		// when
 		game.setCurrentFrame(startingFrame);
 		game.roll(firstRoll);
@@ -81,7 +83,7 @@ public class GameTest {
 		game.roll(thirdRoll);
 		int score = game.score();
 		// then
-		Assert.assertEquals(24, score);
+		Assert.assertEquals(expectedResult, score);
 	}
 
 	@Test
@@ -108,6 +110,7 @@ public class GameTest {
 		int thirdRoll = 10;
 		int fourthRoll = 10;
 		int fifthRoll = 10;
+		int expectedResult = 38;
 		// when
 		game.setCurrentFrame(startingFrame);
 		game.roll(firstRoll);
@@ -117,7 +120,7 @@ public class GameTest {
 		game.roll(fifthRoll);
 		int score = game.score();
 		// then
-		Assert.assertEquals(38, score);
+		Assert.assertEquals(expectedResult, score);
 	}
 
 	@Test(expected = NoMoreFramesException.class)
@@ -143,6 +146,7 @@ public class GameTest {
 		int thirdRoll = 9;
 		int fourthRoll = 1;
 		int fifthRoll = 5;
+		int expectedResult = 18;
 		// when
 		game.setCurrentFrame(startingFrame);
 		game.roll(firstRoll);
@@ -152,7 +156,7 @@ public class GameTest {
 		game.roll(fifthRoll);
 		int score = game.score();
 		// then
-		Assert.assertEquals(18, score);
+		Assert.assertEquals(expectedResult, score);
 	}
 
 	@Test
@@ -168,6 +172,7 @@ public class GameTest {
 		int numberOfPins7Roll = 6;
 		int numberOfPins8Roll = 3;
 		int numberOfPins9Roll = 2;
+		int expectedResult = 52;
 		// when
 		game.setCurrentFrame(startingFrame);
 		game.roll(numberOfPins1Roll);
@@ -181,7 +186,7 @@ public class GameTest {
 		game.roll(numberOfPins9Roll);
 		int score = game.score();
 		// then
-		Assert.assertEquals(52, score);
+		Assert.assertEquals(expectedResult, score);
 	}
 
 	@Test

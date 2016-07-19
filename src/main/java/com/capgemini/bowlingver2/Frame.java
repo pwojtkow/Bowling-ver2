@@ -8,7 +8,7 @@ public class Frame {
 	private int numberOfPointsInFirstRoll;
 	private int numberOfPointsInSecondRoll;
 	private int numberOfPointsInThirdRoll;
-	private int rollNumber = 1;
+	private int rollNumber;
 	private boolean isFinished;
 	private Bonus bonus;
 
@@ -26,6 +26,7 @@ public class Frame {
 
 	public Frame(int frameNumber) {
 		this.frameNumber = frameNumber;
+		rollNumber = 1;
 	}
 
 	public boolean isStrike() {
@@ -65,10 +66,11 @@ public class Frame {
 			closeThisFrame();
 		} else if (frameNumber == LAST_FRAME) {
 			checkBonus();
-			if (bonus!=Bonus.NONE)
+			if (bonus != Bonus.NONE) {
 				incrementRollNumber();
-			else
+			} else {
 				closeThisFrame();
+			}
 		}
 	}
 
@@ -79,7 +81,7 @@ public class Frame {
 	private void checkBonus() {
 		if (isStrike()) {
 			bonus = Bonus.STRIKE;
-			if (frameNumber != LAST_FRAME)
+			if (frameNumber != LAST_FRAME) 
 				closeThisFrame();
 		} else if (isSpare()) {
 			bonus = Bonus.SPARE;
