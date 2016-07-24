@@ -74,14 +74,6 @@ public class Game implements BowlingGameResultCalculator {
 		this.frames = frames;
 	}
 
-	public int getActualScore() {
-		return actualScore;
-	}
-
-	public void setActualScore(int actualScore) {
-		this.actualScore = actualScore;
-	}
-
 	public int getCurrentFrame() {
 		return mainCurrentFrame;
 	}

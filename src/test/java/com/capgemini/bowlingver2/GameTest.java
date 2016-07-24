@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+//TODO WRITE TESTCASES IN SRC FOLDER
 public class GameTest {
 
 	private static final int NUMBER_OF_FRAMES = 10;
@@ -16,6 +17,8 @@ public class GameTest {
 
 	@Test
 	public void shouldCreateFrames() {
+		//given
+		// look in @Before
 		// when
 		Game game = new Game();
 		// then
